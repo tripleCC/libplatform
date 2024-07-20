@@ -290,7 +290,7 @@ OS_OPTIONS(os_unfair_lock_options, uint32_t,
 		OS_UNFAIR_LOCK_AVAILABILITY = 0x00010000,
 	OS_UNFAIR_LOCK_ADAPTIVE_SPIN OS_SWIFT_NAME(AdaptiveSpin)
 		__API_AVAILABLE(macos(10.15), ios(13.0),
-		tvos(13.0), watchos(6.0), bridgeos(4.0)) = 0x00040000,
+		tvos(13.0), watchos(6.0)) = 0x00040000,
 	OS_UNFAIR_LOCK_DEADLINE OS_SWIFT_NAME(Deadline)
 		__API_AVAILABLE(macos(14.3), ios(17.4),
 		watchos(10.4), tvos(17.4)) = 0x02000000,
@@ -347,7 +347,7 @@ void os_unfair_lock_lock_with_options(os_unfair_lock_t lock,
  * Returns true if the lock was succesfully locked and false if the lock was
  * already locked or the timeout was hit.
  */
-SPI_AVAILABLE(macos(14.3), ios(17.4), watchos(10.4), tvos(17.4))
+__API_AVAILABLE(macos(14.3), ios(17.4), watchos(10.4), tvos(17.4))
 OS_EXPORT OS_NOTHROW OS_NONNULL_ALL
 bool os_unfair_lock_trylock_with_options(os_unfair_lock_t lock,
 		os_unfair_lock_options_t options, uint64_t duration);
